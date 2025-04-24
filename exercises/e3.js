@@ -9,8 +9,11 @@
  * */
 
 export function getAverage(array) {
-  // Your code goes here...
-
+  var total = 0;
+  for(var i = 0; i < array.length; i++)
+  total += array[i];
+  var avg = total / array.length;
+  return avg;
 }
 
 
@@ -22,8 +25,13 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  // Your code goes here...
-
+  var strArr = str.split(""), strTemp = 0;
+  for(var i = 0; i < strArr.length; i++) {
+    if(!isNaN(strArr[i])) {
+      strTemp += parseInt(strArr[i]);
+    }
+  }
+  return strTemp;
 }
 
 

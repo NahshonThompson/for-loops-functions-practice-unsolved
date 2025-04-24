@@ -4,7 +4,7 @@
 // getClientWithNoMoney(bankAccounts) => ['Kevin', 'Jon']
 
 export function getClientWithNoMoney(array) {
-  // Your code goes here...
+  return array.filter(array => array.balance=='0').map(array => array.name);
 
 }
 

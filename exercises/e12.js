@@ -4,11 +4,19 @@
 // Array example: bankAccounts in /data/data.js
 // getAllDepositsGreaterThanOneHundred(bankAccounts) => [3432, 43242.34, 23432]
 
+
 export function getAllDepositsGreaterThanOneHundred(array) {
-  // Your code goes here...
-
+  let first = array.map(function(a) {
+    return a.deposits
+  });
+  let second = first.filter(element => element !== undefined);
+  let third = second.flat(Infinity);
+  let fourth = third.filter(function(b) {
+    return b > 100
+  });
+  return fourth
 }
-
+                        
 
 
 // === TEST YOURSELF ===

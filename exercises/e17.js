@@ -6,7 +6,22 @@
 // NOTE: You can NOT use the array.includes() method in your code
 
 export function doesArrayInclude(array, value) {
-  // Your code goes here...
+  let clients = [];
+  for(var i = 0; i < array.length; i++) {
+    var clientLetters = [];
+    var hasTheLetters = false;
+      clientLetters.push(array[i].toLowerCase());
+    
+    for(let y = 0; y < clientLetters.length; y++) {
+      if(clientLetters[y] == value) {
+        var hasTheLetters = true;
+      }
+    }
+    if (hasTheLetters) {
+      clients.push(array[i]);
+    }
+  }
+  return hasTheLetters
 
 }
 
