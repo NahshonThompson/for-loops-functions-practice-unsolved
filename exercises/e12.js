@@ -6,15 +6,20 @@
 
 
 export function getAllDepositsGreaterThanOneHundred(array) {
-  let first = array.map(function(a) {
-    return a.deposits
-  });
-  let second = first.filter(element => element !== undefined);
-  let third = second.flat(Infinity);
-  let fourth = third.filter(function(b) {
-    return b > 100
-  });
-  return fourth
+  const result = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const deposits = array[i].deposits;
+    if (deposits && deposits.length > 0) {
+      for (let j = 0; j < deposits.length; j++) {
+        if (deposits[j] > 100) {
+          result.push(deposits[j]);
+        }
+      }
+    }
+  }
+
+  return result;
 }
                         
 

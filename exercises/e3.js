@@ -9,11 +9,19 @@
  * */
 
 export function getAverage(array) {
-  var total = 0;
-  for(var i = 0; i < array.length; i++)
-  total += array[i];
-  var avg = total / array.length;
-  return avg;
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+    count++;
+  }
+
+  if (count === 0) {
+    return 0;
+  }
+
+  return sum / count;
 }
 
 
@@ -25,13 +33,16 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  var strArr = str.split(""), strTemp = 0;
-  for(var i = 0; i < strArr.length; i++) {
-    if(!isNaN(strArr[i])) {
-      strTemp += parseInt(strArr[i]);
+  let sum = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const code = str.charCodeAt(i);
+    if (code >= 48 && code <= 57) {
+      sum += code - 48;
     }
   }
-  return strTemp;
+
+  return sum;
 }
 
 
