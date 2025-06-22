@@ -8,24 +8,33 @@
 import { bankAccounts } from "../data/data";
 
 export function getClientsWithWrongBalance(array) {
-   let wrongAccounts = [];
+    const wrongAccounts = [];
 
-   for (let bankAccounts of array) {
-    const deposits = bankAccounts.deposits || [];
-    const withdrawals = bankAccounts.withdrawals || [];
-    
-    const depositTotal = deposits.reduce((sum, amount) => sum + amount, 0);
-    const withdrawalTotal = withdrawals.reduce((sum, amount) => sum + amount, 0);
+    for (let i = 0; i < array.length; i++) {
+        let totalDeposits = 0;
+        let totalWithdrawals = 0;
 
-    const calculatedBalance = depositTotal - withdrawalTotal;
+        
+        for (let j = 0; j < array[i].deposits.length; j++) {
+            totalDeposits += array[i].deposits[j];
+        }
 
-    if (bankAccounts.balance !== calculatedBalance) {
-      wrongAccounts.push(bankAccounts)
-    }  
-   } 
-   return wrongAccounts;
+        
+        for (let k = 0; k < array[i].withdrawals.length; k++) {
+            totalWithdrawals += array[i].withdrawals[k];
+        }
+
+        
+        const expectedBalance = totalDeposits - totalWithdrawals;
+
+        
+        if (expectedBalance !== array[i].balance) {
+            wrongAccounts.push(array[i]);
+        }
+    }
+
+    return wrongAccounts;
 }
-
 
 
 // === TEST YOURSELF ===
