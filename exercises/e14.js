@@ -15,14 +15,14 @@ export function getClientsWithWrongBalance(array) {
     let totalDeposits = 0;
     let totalWithdrawals = 0;
 
-    // Sum all deposits
+    
     if (account.deposits) {
       for (let j = 0; j < account.deposits.length; j++) {
         totalDeposits += account.deposits[j];
       }
     }
 
-    // Sum all withdrawals
+    
     if (account.withdrawals) {
       for (let j = 0; j < account.withdrawals.length; j++) {
         totalWithdrawals += account.withdrawals[j];
